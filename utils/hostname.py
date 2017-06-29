@@ -8,7 +8,7 @@ import re
 import socket
 
 # project
-from utils.cloud_metadata import EC2, GCE
+from utils.cloud_metadata import EC2, GCE, Azure
 from utils.dockerutil import DockerUtil
 from utils.kubernetes import KubeUtil
 from utils.platform import Platform
@@ -71,6 +71,12 @@ def get_hostname(config=None):
     if gce_hostname is not None:
         if is_valid_hostname(gce_hostname):
             return gce_hostname
+
+    # Try to get Azure VM ID
+    azure_hostname = Azure.get_hostname(config)
+    if azure_hostname is not None:
+        if is_valid_hostname(azure_hostname):
+            return azure_hostname
 
     # Try to get the docker hostname
     if Platform.is_containerized():
