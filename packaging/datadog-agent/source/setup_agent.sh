@@ -140,7 +140,7 @@ DOG="
 "
 
 LOGFILE="$DD_HOME/ddagent-install.log"
-BASE_GITHUB_URL="https://raw.githubusercontent.com/DataDog/dd-agent/$AGENT_VERSION"
+BASE_GITHUB_URL="https://raw.githubusercontent.com/mnussbaum/dd-agent/$AGENT_VERSION"
 
 #######################################################################
 # Error reporting helpers
@@ -409,7 +409,7 @@ print_done
 
 print_console "* Downloading agent version $AGENT_VERSION from GitHub (~5 MB)"
 mkdir -p "$DD_HOME/agent"
-$DOWNLOADER "$DD_HOME/agent.tar.gz" "https://github.com/DataDog/dd-agent/tarball/$AGENT_VERSION"
+$DOWNLOADER "$DD_HOME/agent.tar.gz" "https://github.com/mnussbaum/dd-agent/tarball/$AGENT_VERSION"
 print_done
 
 print_console "* Uncompressing tarball"
